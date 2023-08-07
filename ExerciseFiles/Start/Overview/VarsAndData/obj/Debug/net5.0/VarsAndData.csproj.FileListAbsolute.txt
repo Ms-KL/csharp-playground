@@ -1,0 +1,16 @@
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\bin\Debug\net5.0\VarsAndData.exe
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\bin\Debug\net5.0\VarsAndData.deps.json
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\bin\Debug\net5.0\VarsAndData.runtimeconfig.json
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\bin\Debug\net5.0\VarsAndData.runtimeconfig.dev.json
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\bin\Debug\net5.0\VarsAndData.dll
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\bin\Debug\net5.0\VarsAndData.pdb
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.csproj.AssemblyReference.cache
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.GeneratedMSBuildEditorConfig.editorconfig
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.AssemblyInfoInputs.cache
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.AssemblyInfo.cs
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.csproj.CoreCompileInputs.cache
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.dll
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\refint\VarsAndData.dll
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.pdb
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\VarsAndData.genruntimeconfig.cache
+C:\GIT\ms-kl\_notongh\csharp-playground\ExerciseFiles\Start\Overview\VarsAndData\obj\Debug\net5.0\ref\VarsAndData.dll
