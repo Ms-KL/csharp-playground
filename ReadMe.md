@@ -6,9 +6,9 @@ This repo explores the fundamentals of C# Programming via tutorials and document
 
 ## Resources
 
-["Learning C#" LinkedIn Learning Course](https://www.linkedin.com/learning/learning-c-sharp-8581491) by [Joe Marini](https://www.linkedin.com/learning/.instructors/joe-marini)
+### ["Learning C#" LinkedIn Learning Course](https://www.linkedin.com/learning/learning-c-sharp-8581491) by [Joe Marini](https://www.linkedin.com/learning/.instructors/joe-marini)
 
-- See: [ExerciseFiles](./ExerciseFiles) for progress
+- see: [ExerciseFiles](./ExerciseFiles) for progress
 - Complete:
   - Hello World C#
   - Variables and Data Types
