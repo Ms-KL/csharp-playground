@@ -4,13 +4,7 @@
 
 This repo explores the fundamentals of C# Programming via tutorials and documentation.
 
-It also explores Unity Game Engine using C#.
-
 ## Resources
-
-### ["Introduction to C# with Unity"](https://www.linkedin.com/learning/introduction-to-c-sharp-with-unity)
-
-- see:
 
 ### ["Learning C#" LinkedIn Learning Course](https://www.linkedin.com/learning/learning-c-sharp-8581491) by [Joe Marini](https://www.linkedin.com/learning/.instructors/joe-marini)
 
