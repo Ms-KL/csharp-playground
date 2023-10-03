@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# read ipynb as C# code
+*.ipynb linguist-language=C#
