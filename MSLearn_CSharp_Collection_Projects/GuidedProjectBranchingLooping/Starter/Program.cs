@@ -112,18 +112,15 @@ do
     switch(menuSelection)
     {
         case "1":  // "1" = checking for a string value (as above in do)
-            // List all of our current pet information
-            // Console.WriteLine("this app feature is coming soon - please check back to see progress.");
             for (int i = 0; i < maxPets; i++)
             {
-                if (ourAnimals[i, 0] != "ID #: ") // if first row of array item doesn't have ID
+                if (ourAnimals[i, 0] != "ID #: ") 
                 {
-                    //Console.WriteLine(ourAnimals[i, 0]);
                     Console.WriteLine();
                     for (int j = 0; j < 6; j++) // charateristics
                     {
                         Console.WriteLine(ourAnimals[i, j]);
-                        // prints current animal characteristics (not including ID)
+                        // prints current animal characteristics
                     }
                 }
             }
@@ -133,7 +130,19 @@ do
 
         case "2":
             // Add a new animal friend to the ourAnimals array
-            Console.WriteLine("this app feature is coming soon - please check back to see progress.");
+            // declare variables for  calculation
+            string anotherPet = "y";
+            int petCount = 0;
+
+            // for each animal in ourAnimals, add +1 to petCount
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    petCount += 1;
+                }
+            }            
+
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();        
             break;
