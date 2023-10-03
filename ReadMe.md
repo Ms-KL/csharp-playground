@@ -6,14 +6,13 @@ This repo explores the fundamentals of C# Programming via tutorials and document
 
 ## Resources
 
+### ["Learn C#" Collection ](https://learn.microsoft.com/en-us/users/dotnet/collections/yz26f8y64n7k07) by MS Learn & FreeCodeCamp
+
+- See: [MSLearn CSharp Collection Projects](./MSLearn_CSharp_Collection_Projects) for my repo
+
 ### ["Learning C#" LinkedIn Learning Course](https://www.linkedin.com/learning/learning-c-sharp-8581491) by [Joe Marini](https://www.linkedin.com/learning/.instructors/joe-marini)
 
-- see: [ExerciseFiles](./ExerciseFiles) for progress
-- Complete:
-  - Hello World C#
-  - Variables and Data Types
-- Upto:
-  - Operators
+- see: [ExerciseFiles](./ExerciseFiles) for mu repo
 
 ## Create a new project
 
