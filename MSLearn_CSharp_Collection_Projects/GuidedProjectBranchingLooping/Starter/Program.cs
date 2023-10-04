@@ -195,6 +195,24 @@ do
                         {
                             validEntry = int.TryParse(animalAge, out petAge);
                             // convert string user entry to integer called petAge
+
+                            // get a description of the pet's physical appearance/condition - animalPhysicalDescription can be blank.
+                            do
+                            {
+                                Console.WriteLine("Enter a physical description of the pet (size, color, gender, weight, housebroken)");
+                                readResult = Console.ReadLine();
+
+                                if (readResult != null)
+                                {
+                                    animalPhysicalDescription = readResult.ToLower();
+                                    
+                                    if (animalPhysicalDescription == "")
+                                    {
+                                        animalPhysicalDescription = "tbd";
+                                    }
+                                }
+                                
+                            } while (animalPhysicalDescription == "");
                         }
                         else
                         {
