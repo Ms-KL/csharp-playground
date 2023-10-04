@@ -137,14 +137,119 @@ do
             // for each animal in ourAnimals, add +1 to petCount
             for (int i = 0; i < maxPets; i++)
             {
-                if (ourAnimals[i, 0] != "ID #: ")
+                if (ourAnimals[i, 0] != "ID #: ") // check if characteristic has been assigned
                 {
-                    petCount += 1;
+                    petCount += 1; // increment
+                }
+            }
+
+            // display message is count is lower than max pets
+            if (petCount < maxPets)
+            {
+               Console.WriteLine($"We currently have {petCount} pets that need homes. We can manage {(maxPets - petCount)} more."); 
+            }
+
+            while (anotherPet == "y" && petCount < maxPets)
+            {
+                // validate pet species
+                bool validEntry = false;
+
+                // get species (cat or dog) - string animalSpecies is a required field
+                do
+                {
+                    // prompt user to enter a species
+                    Console.WriteLine("\n\rEnter 'dog' or 'cat' to begin a new entry");
+                    readResult = Console.ReadLine(); // user input
+
+                    // ensure value is not blank
+                    if (readResult != null)
+                    {
+                        animalSpecies = readResult.ToLower();
+
+                        // is the value entered dog or cat (Validation)
+                        if (animalSpecies != "dog" && animalSpecies != "cat")
+                        {
+                            validEntry = false;
+                        }
+                        else
+                        {
+                            validEntry = true;
+                        }                        
+                    }
+                } while (validEntry == false);
+
+                // build the animal the ID number - for example C1, C2, D3 (for Cat 1, Cat 2, Dog 3)
+                animalID = animalSpecies.Substring(0, 1) + (petCount + 1).ToString();
+
+                // get the pet's age. can be ? at initial entry. 
+                do
+                {
+                    int petAge;
+                    Console.WriteLine("Enter the pet's age or enter ? if unknown");
+                    readResult = Console.ReadLine();
+
+                    if (readResult != null) // if user enter data
+                    {
+                        animalAge = readResult; 
+                        if (animalAge != "?")
+                        {
+                            validEntry = int.TryParse(animalAge, out petAge);
+                            // convert string user entry to integer called petAge
+
+                            // get a description of the pet's physical appearance/condition - animalPhysicalDescription can be blank.
+                            do
+                            {
+                                Console.WriteLine("Enter a physical description of the pet (size, color, gender, weight, housebroken)");
+                                readResult = Console.ReadLine();
+
+                                if (readResult != null)
+                                {
+                                    animalPhysicalDescription = readResult.ToLower();
+                                    
+                                    if (animalPhysicalDescription == "")
+                                    {
+                                        animalPhysicalDescription = "tbd";
+                                    }
+                                }
+                                
+                            } while (animalPhysicalDescription == "");
+                        }
+                        else
+                        {
+                            validEntry = true;
+                        }
+                    }
+                } while (validEntry == false);
+
+                // increment petCount (the array is zero-based, so we increment the counter after adding to the array)
+                petCount = petCount + 1;    
+
+                // check maxPet limit
+                if (petCount < maxPets)
+                {
+                    // another pet?
+                    Console.WriteLine("Do you want to enter info for another pet (y/n)");
+
+                    // respond to y or n
+                    do
+                    {
+                        readResult = Console.ReadLine(); // user input
+                        if (readResult != null) // if user enters data
+                        {
+                            anotherPet = readResult.ToLower(); // transform input to lowercase and save to anotherPet
+                        }
+                    } while (anotherPet != "y" && anotherPet != "n"); // continue looping while prompt for another pet isn't being answered
                 }
             }            
 
-            Console.WriteLine("Press the Enter key to continue.");
-            readResult = Console.ReadLine();        
+
+            if (petCount >= maxPets)
+            {
+                Console.WriteLine("We have reached our limit on the number of pets that we can manage.");                
+                Console.WriteLine("Press the Enter key to continue.");
+                readResult = Console.ReadLine();
+            }
+
             break;
 
         case "3":
