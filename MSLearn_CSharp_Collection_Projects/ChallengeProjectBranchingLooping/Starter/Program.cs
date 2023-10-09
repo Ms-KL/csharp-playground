@@ -311,14 +311,14 @@ do
                             validEntry = int.TryParse(animalAge, out petAge);
                             // Console.WriteLine(id +  " is " + petAge);
 
-                            if (animalAge != "?" && animalAge != null)
-                            {
-                                validEntry = true;
-                            }
-                            else
-                            {
-                                validEntry = false;
-                            }                        
+                            // if (animalAge != "?" && animalAge != null)
+                            // {
+                            //     validEntry = true;
+                            // }
+                            // else
+                            // {
+                            //     validEntry = false;
+                            // }                        
                         }
                     } while (validEntry == false);
 
