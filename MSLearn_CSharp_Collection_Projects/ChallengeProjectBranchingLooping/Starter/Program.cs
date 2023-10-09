@@ -295,6 +295,9 @@ do
 
             for (int i = 0; i < maxPets; i++)
             {
+
+                // ------ petAge ------------
+
                 // animals in ourAnimals array with ? as age
                 if (ourAnimals[i, 0] != "ID #: " && ourAnimals[i, 2] == "Age: ?") 
                 {
@@ -317,7 +320,9 @@ do
                     // store the age in the ourAnimals array
                     ourAnimals[i, 2] = "Age: " + petAge;
                 }
-                
+
+                // ------ animalPhysicalDescription ------------
+
                 if (ourAnimals[i, 0] != "ID #: " && ourAnimals[i, 4] == "Physical description: " || ourAnimals[i, 4] == "Physical description: tbd")
                 {
                     // enter animal age, no null, no ?
