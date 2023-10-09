@@ -318,7 +318,7 @@ do
                     ourAnimals[i, 2] = "Age: " + petAge;
                 }
                 
-                if (ourAnimals[i, 0] != "ID #: " && ourAnimals[i, 4] == "Physical description: ")
+                if (ourAnimals[i, 0] != "ID #: " && ourAnimals[i, 4] == "Physical description: " || ourAnimals[i, 4] == "Physical description: tbd")
                 {
                     // enter animal age, no null, no ?
                     string id = ourAnimals[i, 0];
