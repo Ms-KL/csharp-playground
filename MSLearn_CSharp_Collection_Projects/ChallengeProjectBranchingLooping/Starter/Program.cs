@@ -287,7 +287,49 @@ do
 
         case "3":
             // Ensure animal ages and physical descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            // Console.WriteLine("Challenge Project - please check back soon to see progress.");
+
+            // ------
+
+            // check pets are assigned pet data - use if statement
+
+            for (int i = 0; i < maxPets; i++)
+            {
+                // animals in ourAnimals array with ? as age
+                if (ourAnimals[i, 0] != "ID #: " && ourAnimals[i, 2] == "Age: ?") 
+                {
+                    // get the pet's age. can be ? at initial entry.
+                    string id = ourAnimals[i, 0];
+
+                    do
+                    {
+                        Console.WriteLine($"Enter an age for {id}");
+                        readResult = Console.ReadLine();
+                        if (readResult != null)
+                        {
+                            animalAge = readResult;
+                            validEntry = int.TryParse(animalAge, out petAge);
+                            // Console.WriteLine(id +  " is " + petAge);
+
+                            if (animalAge != "?" && animalAge != null)
+                            {
+                                validEntry = true;
+                            }
+                            else
+                            {
+                                validEntry = false;
+                            }                        
+                        }
+                    } while (validEntry == false);
+
+                    // store the age in the ourAnimals array
+                    ourAnimals[i, 2] = "Age: " + petAge;
+                }
+                
+            }
+            // Console.WriteLine($"Enter an age for ID #: {id}");
+            // readResult = Console.ReadLine();
+
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
