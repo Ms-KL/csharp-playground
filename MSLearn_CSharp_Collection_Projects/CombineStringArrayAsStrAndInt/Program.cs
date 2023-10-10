@@ -28,10 +28,32 @@
 
 
 // instantiate string array
-
 string[] values = { "12.3", "45", "ABC", "11", "DEF" };
 
 // initialise variables
-
 decimal total = 0m;
-string messag = "";
+string message = "";
+// string result = "";
+
+// get length of array
+int valuesLength = values.Length;
+
+// loop until length of array is complete
+for (int i = 0; i < valuesLength; i++)
+{
+    decimal amount = 0m;
+    string value = values[i];
+
+
+    if (decimal.TryParse(value, out amount))
+    {
+        total += amount;
+
+    }
+    else
+    {
+        message += value;
+    }
+}
+
+Console.WriteLine($"Message: {message}\nTotal: {total}");
