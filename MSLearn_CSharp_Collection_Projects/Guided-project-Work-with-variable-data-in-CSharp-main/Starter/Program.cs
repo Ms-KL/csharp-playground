@@ -151,11 +151,66 @@ do
             break;
 
         case "2":
+            // Console.WriteLine("\nUNDER CONSTRUCTION - please check back next month to see progress.");
+            // Console.WriteLine("Press the Enter key to continue.");
+            // readResult = Console.ReadLine();
+            // break;
+
             // Display all dogs with a specified characteristic
-            Console.WriteLine("\nUNDER CONSTRUCTION - please check back next month to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
+            string dogCharacteristic = "";
+
+            // while user hasn't entered data (Enter), continue the loop
+            while (dogCharacteristic == "")
+            {
+                // have the user enter physical characteristics to search for
+                Console.WriteLine($"\nEnter one desired dog characteristics to search for");
+                readResult = Console.ReadLine();
+                if (readResult != null)
+                {
+                    dogCharacteristic = readResult.ToLower().Trim();
+                }
+            } 
+            // declare a string to hold combined data that orignated from 2 descriptions
+            // declaration
+            string dogDescription = "";
+
+            // setup bool for checking
+            bool noMatchesDog = true;
+
+            // #6 loop through the ourAnimals array to search for matching animals
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 1].Contains("dog"))
+                {
+                    // #7 Search combined descriptions and report results
+                    // populate with 2 descriptions
+                    // animalPhysicalDescription and animalPersonalityDescription
+                    dogDescription = ourAnimals[i,4] + "\n" + ourAnimals[i,5];
+
+
+                    if (dogDescription.Contains(dogCharacteristic))
+                    {
+                        Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+                        Console.WriteLine(dogDescription);
+
+                        // result = matched dog
+                        noMatchesDog = false;
+                    }
+                }
+            }
+            if (noMatchesDog)
+            {
+                Console.WriteLine("None of our dogs are a match found for: " + dogCharacteristic);
+            }
+
+
+            Console.WriteLine("\n\rPress the Enter key to continue");
             readResult = Console.ReadLine();
+            
+
             break;
+
+            
 
         default:
             break;
