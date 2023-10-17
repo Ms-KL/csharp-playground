@@ -168,7 +168,8 @@ do
                         foreach (string icon in searchingIcons)
                         {
                             Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {dogCharacteristic} {icon}");
-                            Thread.Sleep(250);
+                            Thread.Sleep(250); // suspends for x amount of time
+                            // https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep?view=net-7.0
                         }
                         
                         Console.Write($"\r{new String(' ', Console.BufferWidth)}");
