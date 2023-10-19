@@ -137,7 +137,8 @@ do
             while (dogCharacteristic == "")
             {
                 // #2 have user enter multiple comma separated characteristics to search for
-                Console.WriteLine($"\r\nEnter one desired dog characteristic to search for");
+                // Console.WriteLine($"\r\nEnter one desired dog characteristic to search for");
+                Console.WriteLine($"\nEnter the search terms separated by commas");
                 readResult = Console.ReadLine();
                 if (readResult != null)
                 {
@@ -145,6 +146,10 @@ do
                     Console.WriteLine();
                 }
             }
+            // separate out individual search terms from the user entry string and store as values in an array
+            string[] dogCharacteristics = dogCharacteristic.Split(',');      
+            // sort array in alphanumeric order
+            Array.Sort(dogCharacteristics);                       
 
             bool noMatchesDog = true;
             string dogDescription = "";
@@ -177,16 +182,29 @@ do
                     
                     // #3a iterate submitted characteristic terms and search description for each term
                     
-                    if (dogDescription.Contains(dogCharacteristic))
+                    foreach (string characteristic in dogCharacteristics)
                     {
-                        // #3b update message to reflect term 
-                        // #3c set a flag "this dog" is a match
-                        Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match!");
+                        // Console.WriteLine(characteristic);
+                        if (dogDescription.Contains(characteristic))
+                        //if (dogDescription.Contains(dogCharacteristic))
+                        {
+                            // #3b update message to reflect term 
+                            // #3c set a flag "this dog" is a match
+                            Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match for your search for {characteristic.Trim()}");
+                            Console.WriteLine(dogDescription);
 
-                        noMatchesDog = false;
+                            noMatchesDog = false;
+                        }
+
+                        // if (noMatchesDog == false)
+                        // {
+                        //     Console.WriteLine(dogDescription);
+                        // }
+
+                        // #3d if "this dog" is match write match message + dog description
+
                     }
 
-                    // #3d if "this dog" is match write match message + dog description
                 }
             }
 
