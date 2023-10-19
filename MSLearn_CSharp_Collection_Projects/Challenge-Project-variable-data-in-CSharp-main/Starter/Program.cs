@@ -190,20 +190,22 @@ do
                         {
                             // #3b update message to reflect term 
                             // #3c set a flag "this dog" is a match
-                            Console.WriteLine($"\nOur dog {ourAnimals[i, 3]} is a match for your search for {characteristic.Trim()}");
-                            Console.WriteLine(dogDescription);
+                            // remove "Nickname: " from value
+                            string ourAnimalNickname = (ourAnimals[i, 3]).Remove(0,10);
+                            Console.Write($"Our dog {ourAnimalNickname} is a match for your search for {characteristic.Trim()}\n");
 
                             noMatchesDog = false;
                         }
 
-                        // if (noMatchesDog == false)
-                        // {
-                        //     Console.WriteLine(dogDescription);
-                        // }
 
                         // #3d if "this dog" is match write match message + dog description
 
                     }
+                    if (noMatchesDog == false)
+                        {
+                            Console.WriteLine($"\n{ourAnimals[i, 3]} ({ourAnimals[i, 0]})");
+                            Console.WriteLine(dogDescription);
+                        }
 
                 }
             }
