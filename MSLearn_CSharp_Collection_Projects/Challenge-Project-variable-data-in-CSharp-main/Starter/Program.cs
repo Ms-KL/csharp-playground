@@ -155,53 +155,74 @@ do
             string dogDescription = "";
             
             // #4 update to "rotating" animation with countdown
-            string[] searchingIcons = {".  ", ".. ", "..."};
+            string[] searchingIcons = {"| ", @"/ ", "--", @"\ ","* "};
 
             // loop ourAnimals array to search for matching animals
             for (int i = 0; i < maxPets; i++)
             {
 
                 if (ourAnimals[i, 1].Contains("dog"))
-                {
-                    
+                {                 
                     // Search combined descriptions and report results
+                    bool currentDogMatch = false;
                     dogDescription = ourAnimals[i, 4] + "\r\n" + ourAnimals[i, 5];
-                    
-                    for (int j = 5; j > -1 ; j--)
-                    {
+                    // int countdown = 2;
+                    //for (int j = 5; j > -1 ; j--)
+                    //{
                     // #5 update "searching" message to show countdown 
-                        foreach (string icon in searchingIcons)
-                        {
-                            Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {dogCharacteristic} {icon}");
-                            Thread.Sleep(250); // suspends for x amount of time
-                            // https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep?view=net-7.0
-                        }
+
+                       // do {
+                            // for (int countdown = 2; countdown > -1; j--)
+                            // {
+                                // foreach (string icon in searchingIcons)
+                                // {
+                                //     // if (icon == "* ")
+                                //     // {
+                                //     //     countdown -= 1;
+                                //     // }
+                                //     Console.Write($"\rsearching...{dogCharacteristic} {icon} {countdown}");                            
+                                //     Thread.Sleep(100); // suspends for x amount of time
+                                //     Console.Write($"\r{new String(' ', Console.BufferWidth)}");
+                                // }
+                            // }
+                            // } while (countdown > -1);
+                        //Console.Write($"\rsearching our dog {ourAnimals[i, 3]} for {dogCharacteristic} {icon}");
+                        // Console.Write($"\rsearching...{dogCharacteristic} {icon} {countdown}");                            
+                        // Thread.Sleep(150); // suspends for x amount of time
+                        // // https://learn.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep?view=net-7.0
                         
-                        Console.Write($"\r{new String(' ', Console.BufferWidth)}");
-                    }
+                        // Console.Write($"\r{new String(' ', Console.BufferWidth)}");
+                    //}
                     
                     // #3a iterate submitted characteristic terms and search description for each term
-                    
-                    foreach (string characteristic in dogCharacteristics)
-                    {
-                        // Console.WriteLine(characteristic);
-                        if (dogDescription.Contains(characteristic))
-                        //if (dogDescription.Contains(dogCharacteristic))
+                  
+                        foreach (string characteristic in dogCharacteristics)
                         {
-                            // #3b update message to reflect term 
-                            // #3c set a flag "this dog" is a match
-                            // remove "Nickname: " from value
-                            string ourAnimalNickname = (ourAnimals[i, 3]).Remove(0,10);
-                            Console.Write($"Our dog {ourAnimalNickname} is a match for your search for {characteristic.Trim()}\n");
+                            for (int j = 2; j > -1 ; j--)
+                            {
+                                foreach (string icon in searchingIcons)
+                                {
+                                    Console.Write($"\rsearching...{characteristic} {icon} {j.ToString()}");                            
+                                    Thread.Sleep(100); // suspends for x amount of time
+                                }
+                                Console.Write($"\r{new String(' ', Console.BufferWidth)}");
+                            }
+                            // Console.WriteLine(characteristic);
+                            if (dogDescription.Contains(characteristic))
+                            //if (dogDescription.Contains(dogCharacteristic))
+                            {
+                                // #3b update message to reflect term 
+                                // #3c set a flag "this dog" is a match
+                                // remove "Nickname: " from value
+                                string ourAnimalNickname = (ourAnimals[i, 3]).Remove(0,10);
+                                Console.Write($"Our dog {ourAnimalNickname} is a match for your search for {characteristic.Trim()}\n");
+                                currentDogMatch = true;
 
-                            noMatchesDog = false;
+                                noMatchesDog = false;
+                            }
+                            // #3d if "this dog" is match write match message + dog description
                         }
-
-
-                        // #3d if "this dog" is match write match message + dog description
-
-                    }
-                    if (noMatchesDog == false)
+                        if (currentDogMatch)
                         {
                             Console.WriteLine($"\n{ourAnimals[i, 3]} ({ourAnimals[i, 0]})");
                             Console.WriteLine(dogDescription);
