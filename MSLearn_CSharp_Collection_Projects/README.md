@@ -2,21 +2,24 @@
 
 Learning C# via MS Learn & FreeCodeCamp Cirriculum
 
-* Note: Snippets & Study Notes located: [CSharp Notebook](.\mslearn_Csharp_studynotes.ipynb) & throughout projects
-* Created using [Polygot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) to edit in C#
+-------------------------------------------------------------------------------
+## C# MS Learn Study Notes
 
+* Snippets & Study Notes located: [CSharp Notebook](.\mslearn_Csharp_studynotes.ipynb) & throughout [projects](/MSLearn_CSharp_Collection_Projects/)
+* Notebook created using [Polygot Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) to edit in C#
+    * changes Jupyter Python notebook to a C# notebook
 
 -------------------------------------------------------------------------------
-## Setup steps    
+## New C# Application  
 
 1. create a new console application
     ```shell
-    dotnet new console -o ./CsharpProjects/TestProject
+    dotnet new console -o ./<newDirectoryName>/<newProjectName>
     ```
     - This .NET CLI command uses a .NET program template to:
         - create a new C# console application project in the specified folder location
-        - create the `CsharpProjects` and `TestProject` folders
-        - use `TestProject` as the name of your `.csproj` file.
+        - create the `newDirectoryName` and `newProjectName` folders
+        - use `newProjectName` as the name of your `.csproj` file.
 
     * It also creates `Program.cs` and inserts: 
         ```csharp
@@ -42,11 +45,12 @@ Learning C# via MS Learn & FreeCodeCamp Cirriculum
     ```csharp
     Console.WriteLine("Kristy is learning C#");
     ```
-3. Right click TestProject directory in VS Code - Open Integrated Terminal
+3. Right click `newProjectName` directory in VS Code - Open Integrated Terminal
 4. run `dotnet build` command to build project and dependency into binaries
     ```shell
     dotnet build
     ```
+    * debug as required
 5. run application in terminal
     ```shell
     dotnet run
