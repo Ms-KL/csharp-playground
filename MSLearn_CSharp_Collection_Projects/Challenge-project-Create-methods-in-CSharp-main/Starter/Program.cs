@@ -43,7 +43,8 @@ while (!shouldExit)
         // check if food consumed method is working
         if(ConsumedFood())
         {
-            Console.WriteLine("Food Consumed");
+            // change player appearance when food consumed
+            ChangePlayer();
         }
     }
     
