@@ -45,6 +45,9 @@ while (!shouldExit)
         {
             // change player appearance when food consumed
             ChangePlayer();
+
+            // redisplay food when food consumed
+            ShowFood();
         }
     }
     
@@ -121,8 +124,8 @@ void Move(bool invalidMove = false)
             //invalidMove = true;
             Console.WriteLine("\nInvalid keystroke. Game Exiting");
             Thread.Sleep(1500);
-            Console.Clear();
             shouldExit = true;
+            Console.Clear();
             break;
     }
 
