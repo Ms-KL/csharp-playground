@@ -33,8 +33,8 @@ while (!shouldExit)
     {
         Console.WriteLine("\nConsole was resized. Program exiting");
         Thread.Sleep(1500);
-        Console.Clear();
         shouldExit = true;
+        Console.Clear();
     }
     else
     {
@@ -58,7 +58,6 @@ bool ConsumedFood()
 {
     return playerX == foodX && playerY == foodY;
 }
-
 
 // Returns true if the Terminal was resized 
 bool TerminalResized() 
@@ -84,9 +83,11 @@ void ShowFood()
 // Changes the player to match the food consumed
 void ChangePlayer() 
 {
+
     player = states[food];
     Console.SetCursorPosition(playerX, playerY);
     Console.Write(player);
+
 }
 
 // Temporarily stops the player from moving
@@ -122,13 +123,11 @@ void Move(bool invalidMove = false)
             shouldExit = true; 
             Console.Clear();
             break;
-        // non directional input = exit game
-        default:
-            //invalidMove = true;
+        default: // non directional input = exit game
             Console.WriteLine("\nInvalid direction, you lose! Game Exiting.\n");
-            Thread.Sleep(1500);
+            Thread.Sleep(1500); // delay so message displays
             shouldExit = true;
-            Console.Clear();
+            Console.Clear(); // clear console so clean for next command
             break;
     }
 
