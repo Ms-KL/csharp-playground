@@ -116,13 +116,16 @@ void Move(bool invalidMove = false)
 		case ConsoleKey.RightArrow: 
             playerX++; 
             break;
-		case ConsoleKey.Escape:     
+		case ConsoleKey.Escape:  
+            Console.WriteLine("\nYou Quit the Game. Thanks for playing!\n");   
+            Thread.Sleep(1500);
             shouldExit = true; 
+            Console.Clear();
             break;
         // non directional input = exit game
         default:
             //invalidMove = true;
-            Console.WriteLine("\nInvalid keystroke. Game Exiting");
+            Console.WriteLine("\nInvalid direction, you lose! Game Exiting.\n");
             Thread.Sleep(1500);
             shouldExit = true;
             Console.Clear();
