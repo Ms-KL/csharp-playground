@@ -39,10 +39,16 @@ while (!shouldExit)
     else
     {
         Move(shouldExit);
-
     }
     
 }
+
+// Returns true if player location = food location (consumed)
+bool ConsumedFood()
+{
+    return playerX == foodX && playerY == foodY;
+}
+
 
 // Returns true if the Terminal was resized 
 bool TerminalResized() 
