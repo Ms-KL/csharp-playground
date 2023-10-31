@@ -38,7 +38,7 @@ while (!shouldExit)
     }
     else
     {
-        Move(shouldExit);
+        Move();
         // check if food consumed method is working
         if(ConsumedFood())
         {
@@ -127,7 +127,7 @@ void FreezePlayer()
 }
 
 // Reads directional input from the Console and moves the player
-void Move(bool invalidMove = false) 
+void Move() 
 {
     int lastX = playerX;
     int lastY = playerY;
