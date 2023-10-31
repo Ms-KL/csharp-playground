@@ -38,7 +38,7 @@ while (!shouldExit)
     }
     else
     {
-        Move();
+        Move(3); // add speed argument as required (3). Default = 1
         // check if food consumed method is working
         if(ConsumedFood())
         {
@@ -106,15 +106,7 @@ void ChangePlayer()
 // Check if player should freeze
 bool ShouldFreeze()
 {
-    //if (player == "(X_X)")
-    if (player == states[2])    
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return player == states[2];
 }
 
 // Temporarily stops the player from moving
@@ -126,8 +118,14 @@ void FreezePlayer()
     Console.Clear();
 }
 
+// Optional: Check if player could increase speed
+bool couldIncrease()
+{   
+    return player == states[1];
+}
+
 // Reads directional input from the Console and moves the player
-void Move() 
+void Move(int playerSpeed = 1) 
 {
     int lastX = playerX;
     int lastY = playerY;
@@ -135,10 +133,25 @@ void Move()
     switch (Console.ReadKey(true).Key) 
     {
         case ConsoleKey.UpArrow:
-            playerY--; 
+            if (couldIncrease())
+            {
+                playerY-= playerSpeed; 
+            }
+            else 
+            {
+                playerY--;
+            }
+
             break;
 		case ConsoleKey.DownArrow: 
-            playerY++; 
+            if (couldIncrease())
+            {
+                playerY+= playerSpeed; 
+            }
+            else 
+            {
+                playerY++;
+            }
             break;
 		case ConsoleKey.LeftArrow:  
             playerX--; 
@@ -158,6 +171,13 @@ void Move()
             shouldExit = true;
             Console.Clear(); // clear console so clean for next command
             break;
+    }
+
+    // Increase player speed based on left and right movement
+    if (couldIncrease())
+    {
+        playerSpeed += 3;
+
     }
 
     // Clear the characters at the previous position
