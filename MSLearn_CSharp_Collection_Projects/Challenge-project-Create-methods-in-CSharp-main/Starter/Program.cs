@@ -39,6 +39,12 @@ while (!shouldExit)
     else
     {
         Move(shouldExit);
+
+        // check if food consumed method is working
+        if(ConsumedFood())
+        {
+            Console.WriteLine("Food Consumed");
+        }
     }
     
 }
