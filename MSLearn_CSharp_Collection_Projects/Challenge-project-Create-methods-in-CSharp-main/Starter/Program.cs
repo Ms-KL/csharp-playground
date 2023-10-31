@@ -39,7 +39,6 @@ while (!shouldExit)
     else
     {
         Move(shouldExit);
-
         // check if food consumed method is working
         if(ConsumedFood())
         {
@@ -48,6 +47,20 @@ while (!shouldExit)
 
             // redisplay food when food consumed
             ShowFood();
+        }
+        // check if player appearance = (X_X)
+        else if(ShouldFreeze())
+        {
+            // temp freeze player
+            //Console.WriteLine("Player Frozen");
+            FreezePlayer();
+
+            // respawn player once unfrozen
+            ChangePlayer();
+
+            // redisplay food once unfrozen
+            ShowFood();
+
         }
     }
     
@@ -90,11 +103,27 @@ void ChangePlayer()
 
 }
 
+// Check if player should freeze
+bool ShouldFreeze()
+{
+    //if (player == "(X_X)")
+    if (player == states[2])    
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 // Temporarily stops the player from moving
 void FreezePlayer() 
 {
-    System.Threading.Thread.Sleep(1000);
+    Console.WriteLine("Sorry, your player is frozen! Please wait.");
+    System.Threading.Thread.Sleep(3000);
     player = states[0];
+    Console.Clear();
 }
 
 // Reads directional input from the Console and moves the player
