@@ -27,8 +27,7 @@ int food = 0;
 InitializeGame();
 while (!shouldExit) 
 {
-    //Move();
-    
+   
     // Exits the game if terminal is resized
     if (TerminalResized())
     {
@@ -39,27 +38,11 @@ while (!shouldExit)
     }
     else
     {
-        //shouldExit = false;
         Move(shouldExit);
 
     }
     
 }
-
-// Exits the game if terminal is resized
-// bool resized = false;
-
-// while (!resized)
-// {
-//     resized = TerminalResized();
-//     if (resized)
-//     {
-//         Console.WriteLine("\nConsole was resized. Program exiting");
-//         Thread.Sleep(2000);
-//         Console.Clear();
-//         shouldExit = true;
-//     }
-// }
 
 // Returns true if the Terminal was resized 
 bool TerminalResized() 
