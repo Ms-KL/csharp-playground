@@ -27,8 +27,39 @@ int food = 0;
 InitializeGame();
 while (!shouldExit) 
 {
-    Move();
+    //Move();
+    
+    // Exits the game if terminal is resized
+    if (TerminalResized())
+    {
+        Console.WriteLine("\nConsole was resized. Program exiting");
+        Thread.Sleep(1500);
+        Console.Clear();
+        shouldExit = true;
+    }
+    else
+    {
+        //shouldExit = false;
+        Move(shouldExit);
+
+    }
+    
 }
+
+// Exits the game if terminal is resized
+// bool resized = false;
+
+// while (!resized)
+// {
+//     resized = TerminalResized();
+//     if (resized)
+//     {
+//         Console.WriteLine("\nConsole was resized. Program exiting");
+//         Thread.Sleep(2000);
+//         Console.Clear();
+//         shouldExit = true;
+//     }
+// }
 
 // Returns true if the Terminal was resized 
 bool TerminalResized() 
@@ -67,7 +98,7 @@ void FreezePlayer()
 }
 
 // Reads directional input from the Console and moves the player
-void Move() 
+void Move(bool invalidMove = false) 
 {
     int lastX = playerX;
     int lastY = playerY;
@@ -89,6 +120,14 @@ void Move()
 		case ConsoleKey.Escape:     
             shouldExit = true; 
             break;
+        // non directional input = exit game
+        default:
+            //invalidMove = true;
+            Console.WriteLine("\nInvalid keystroke. Game Exiting");
+            Thread.Sleep(1500);
+            Console.Clear();
+            shouldExit = true;
+            break;
     }
 
     // Clear the characters at the previous position
@@ -106,6 +145,7 @@ void Move()
     Console.SetCursorPosition(playerX, playerY);
     Console.Write(player);
 
+
 }
 
 // Clears the console, displays the food and player
@@ -116,18 +156,4 @@ void InitializeGame()
     Console.SetCursorPosition(0, 0);
     Console.Write(player);
 
-    // Exits the game if terminal is resized
-    bool resized = false;
-
-    while (!resized)
-    {
-        resized = TerminalResized();
-        if (resized)
-        {
-            Console.WriteLine("\nConsole was resized. Program exiting");
-            Thread.Sleep(2000);
-            Console.Clear();
-            shouldExit = true;
-        }
-    }
 }
