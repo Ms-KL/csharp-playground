@@ -81,8 +81,19 @@ while (transactions > 0)
     Console.WriteLine($"\t Using {paymentFives} five dollar bills");
     Console.WriteLine($"\t Using {paymentOnes} one dollar bills");
 
-    // MakeChange manages the transaction and updates the till 
-    string transactionMessage = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+    // ------ START OF: ENCLOSE METHOD IN TRY STATEMENT TO VERIFY TILL BALANCE ------
+
+    try
+    {    
+        // MakeChange manages the transaction and updates the till 
+        string transactionMessage = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+    }
+    catch
+    {
+        // INSERT CATCH ONCE EXCEPTIONS HAVE BEEN CREATED AND THROWN
+    }
+
+    // ------ END OF: ENCLOSE METHOD IN TRY STATEMENT TO VERIFY TILL BALANCE ------
 
     // Backup Calculation - each transaction adds current "itemCost" to the till
     if (transactionMessage == "transaction succeeded")
