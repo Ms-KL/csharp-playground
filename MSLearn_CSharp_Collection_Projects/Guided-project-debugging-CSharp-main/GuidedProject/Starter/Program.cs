@@ -51,17 +51,24 @@ Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
 
 var valueGenerator = new Random((int)DateTime.Now.Ticks);
 
-int transactions = 10;
+// UPDATE TO 40
+//int transactions = 10;
+int transactions = 40;
 
 if (useTestData)
 {
     transactions = testData.Length;
 }
 
+// -- ITERATE THROUGH TRANSACTIONS
 while (transactions > 0)
 {
     transactions -= 1;
-    int itemCost = valueGenerator.Next(2, 20);
+
+    // UPDATE RANDOMISED VALUES TO 50
+    // This cost range is a better match for items that customers will be purchasing.
+    //int itemCost = valueGenerator.Next(2, 20);
+    int itemCost = valueGenerator.Next(2, 50);    
 
     if (useTestData)
     {
