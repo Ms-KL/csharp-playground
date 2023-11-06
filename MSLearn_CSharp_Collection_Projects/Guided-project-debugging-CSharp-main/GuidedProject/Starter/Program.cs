@@ -85,26 +85,44 @@ while (transactions > 0)
 
     try
     {    
+        // STRING TO VOID
         // MakeChange manages the transaction and updates the till 
-        string transactionMessage = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+        // string transactionMessage = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+
+        // MakeChange manages the transaction and updates the till 
+        MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+
+        Console.WriteLine($"Transaction successfully completed.");
+        registerCheckTillTotal += itemCost;
+
     }
-    catch
+    catch (InvalidOperationException e)
     {
-        // INSERT CATCH ONCE EXCEPTIONS HAVE BEEN CREATED AND THROWN
+        Console.WriteLine($"Could not complete transaction: {e.Message}");
+
+        /*
+            The InvalidOperationException exception object thrown in MakeChange will be caught, but other exception types won't. 
+            
+            Since you're not prepared to handle other exception types, it's important to let them be caught lower in the call stack. 
+            
+            If you become aware that other exception types are expected within MakeChange, you can add additional catch clauses.
+        */
     }
 
     // ------ END OF: ENCLOSE METHOD IN TRY STATEMENT TO VERIFY TILL BALANCE ------
 
-    // Backup Calculation - each transaction adds current "itemCost" to the till
-    if (transactionMessage == "transaction succeeded")
-    {
-        Console.WriteLine($"Transaction successfully completed.");
-        registerCheckTillTotal += itemCost;
-    }
-    else
-    {
-        Console.WriteLine($"Transaction unsuccessful: {transactionMessage}");
-    }
+    // NOT REQUIRED - MESSAGE DISPLAYED IN TRY/CATCH BLOCK INSTEAD
+
+    // // Backup Calculation - each transaction adds current "itemCost" to the till
+    // if (transactionMessage == "transaction succeeded")
+    // {
+    //     Console.WriteLine($"Transaction successfully completed.");
+    //     registerCheckTillTotal += itemCost;
+    // }
+    // else
+    // {
+    //     Console.WriteLine($"Transaction unsuccessful: {transactionMessage}");
+    // }
 
     Console.WriteLine(TillAmountSummary(cashTill));
     Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
@@ -129,10 +147,12 @@ static void LoadTillEachMorning(int[,] registerDailyStartingCash, int[] cashTill
     cashTill[3] = registerDailyStartingCash[3, 1];
 }
 
-
-static string MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int fives = 0, int ones = 0)
+// STRING TO VOID
+// static string MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int fives = 0, int ones = 0)
+static void MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, int fives = 0, int ones = 0)
 {
-    string transactionMessage = "";
+    // STRING TO VOID
+    //string transactionMessage = "";
 
     cashTill[3] += twenties;
     cashTill[2] += tens;
@@ -142,8 +162,25 @@ static string MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, i
     int amountPaid = twenties * 20 + tens * 10 + fives * 5 + ones;
     int changeNeeded = amountPaid - cost;
 
+    // if (changeNeeded < 0)
+    //     transactionMessage = "Not enough money provided.";
+    
+    /*
+        PRESENTS ISSUE:
+        
+        If changeNeeded is less than zero, 
+            the customer has not provided enough money to cover the purchase price of the item they're buying. The purchase price and the money provided by the customer are parameters of the MakeChange method. 
+        
+        The method is unable to complete the transaction when 
+            the customer doesn't provide enough money. 
+        
+        In other words, the operation fails.
+
+    */
+
     if (changeNeeded < 0)
-        transactionMessage = "Not enough money provided.";
+    throw new InvalidOperationException("InvalidOperationException: Not enough money provided to complete the transaction.");
+    // InvalidOperationException: exception should only be thrown when the operating conditions of a method don't support the successful completion of a particular method call. In this case the operating conditions are established by the parameters supplied to the method.
 
     Console.WriteLine("Cashier Returns:");
 
@@ -175,13 +212,29 @@ static string MakeChange(int cost, int[] cashTill, int twenties, int tens = 0, i
         Console.WriteLine("\t A one");
     }
 
+    // if (changeNeeded > 0)
+    //     transactionMessage = "Can't make change. Do you have anything smaller?";
+    
+    /*
+        PRESENTS ISSUE:
+
+        If changeNeeded is greater than zero after the while loops that prepare the change, 
+            then the till has run out of bills that can be used to make change. 
+        
+        The method is unable to complete the transaction when the till lacks the bills required to make change. 
+        
+        In other words, the operation fails.
+
+    */
+
     if (changeNeeded > 0)
-        transactionMessage = "Can't make change. Do you have anything smaller?";
+        throw new InvalidOperationException("InvalidOperationException: The till is unable to make the correct change.");
 
-    if (transactionMessage == "")
-        transactionMessage = "transaction succeeded";
+    // STRING TO VOID
+    // if (transactionMessage == "")
+    //     transactionMessage = "transaction succeeded";
 
-    return transactionMessage;
+    // return transactionMessage;
 }
 
 static void LogTillStatus(int[] cashTill)
