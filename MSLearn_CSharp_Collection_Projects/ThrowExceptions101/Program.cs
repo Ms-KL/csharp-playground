@@ -7,17 +7,57 @@ int upperBound = int.Parse(Console.ReadLine());
 
 decimal averageValue = 0;
 
-// Calculate the sum of the even numbers between the bounds
-averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
+// check to see if user enters exit
+bool exit = false;
 
-// Display the value returned by AverageOfEvenNumbers in the console
-Console.WriteLine($"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}.");
+do
+{
+    try
+    {
+        // Calculate the sum of the even numbers between the bounds
+        averageValue = AverageOfEvenNumbers(lowerBound, upperBound);
+
+        // Display the value returned by AverageOfEvenNumbers in the console
+        Console.WriteLine($"The average of even numbers between {lowerBound} and {upperBound} is {averageValue}.");
+
+        exit = true;
+    }
+    catch (ArgumentOutOfRangeException ex) 
+    // create catch method using exception in throw portion of AverageOfEvenNumbers Method
+    {
+        // explain issue to user, obtain new upper bound
+        Console.WriteLine("An error has occured.");
+        Console.WriteLine(ex.Message);
+        Console.WriteLine($"The upper bound must be greater than {lowerBound}");
+        Console.WriteLine($"Enter a new upper bound (or enter Exit to quit): ");
+        string? userResponse = Console.ReadLine();
+        if (userResponse.ToLower().Contains("exit"))
+        {
+            exit = true;
+        }
+        else
+        {   
+            exit = false;
+            upperBound = int.Parse(userResponse);
+        }
+    }
+} while (exit == false);
 
 // Wait for user input
 Console.ReadLine();
 
 static decimal AverageOfEvenNumbers(int lowerBound, int upperBound)
 {
+    if (lowerBound >= upperBound)
+    {
+        /*
+        Initialize a new instance of the ArgumentOutOfRangeException class with 
+            the name of the input parameter that causes the exception and a specified error message.
+        */
+        throw new ArgumentOutOfRangeException("upperBound", "ArgumentOutOfRangeException: upper bound must be greater than lower bound.");
+        
+    }
+
     int sum = 0;
     int count = 0;
     decimal average = 0;
