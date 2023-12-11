@@ -10,10 +10,10 @@ My exploration of the fundamentals of C# Programming via tutorials and documenta
   - ✅ Complete
   - [Repo](./MSLearn_CSharp_Collection_Projects)
 
-- **DotNet:** ["C# for Beginners"](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oULFjxrOagaERVAMbmG20Xe)
+- **DotNet Youtube:** ["C# for Beginners"](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oULFjxrOagaERVAMbmG20Xe)
   - ⏳ In Progress
   - [Repo](./CSharpForBeginners)
 
-- **LinkedIn:** ["Learning C#" LinkedIn Learning Course](https://www.linkedin.com/learning/learning-c-sharp-8581491) by [Joe Marini](https://www.linkedin.com/learning/.instructors/joe-marini)
+- **LinkedIn Learning:** ["Learning C#" LinkedIn Learning Course](https://www.linkedin.com/learning/learning-c-sharp-8581491) by [Joe Marini](https://www.linkedin.com/learning/.instructors/joe-marini)
   - ⏳ In Progress
   - [Repo](./ExerciseFiles)
