@@ -1,0 +1,2 @@
+# **LinkedIn Learning:** ["Learning C#" LinkedIn Learning Course](https://www.linkedin.com/learning/learning-c-sharp-8581491) by [Joe Marini](https://www.linkedin.com/learning/.instructors/joe-marini)
+  - ⏳ In Progress
