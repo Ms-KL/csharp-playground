@@ -1,0 +1,5 @@
+Starting Point: https://www.youtube.com/watch?v=9THmGiSPjBQ&list=PLdo4fOcmZ0oULFjxrOagaERVAMbmG20Xe&index=1
+
+Current Point: https://www.youtube.com/watch?v=HFLALzkcjLM&list=PLdo4fOcmZ0oULFjxrOagaERVAMbmG20Xe&index=2
+
+Blocker: Error when building running - need help from Matt
